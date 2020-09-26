@@ -73,11 +73,6 @@ const comparoColorEnLaTarjeta = (card) => {
 }
 
 
-
-
-
-
-
 //chequea si hay algun radio chequeado
 const hayAlgunRadioChequeado = () => {
     for (radio of filtroSexo) {
@@ -87,6 +82,22 @@ const hayAlgunRadioChequeado = () => {
     }
     return false
 }
+
+
+// chequeamos que el valor del radio coincida con la tarjeta
+const comparoSexoConLaTarjeta = (card) =>{
+    if (card.dataset.sexo === radio.value){
+        return true
+    }
+    else {
+        return false
+    }
+}
+
+
+
+
+
 
 //chequea si hay algo escrito en el input
 const hayAlgoEscritoEnElInput = () => {
@@ -134,28 +145,38 @@ const pasaFiltros = (card) => {
 // si el radio chequeado coinciden con el color de alguna tarjeta
 // retorno true, sino retorno false
 
-if (hayAlgunCheckBoxChequeado()){
-    if (comparoColorEnLaTarjeta(card)){
-        return true
-    }
-    else {
-        return false
-    }
-}
-else {
-    return true
-}
-
-
-
-
-
-
+    // if (hayAlgunCheckBoxChequeado()){
+    //     if (comparoColorEnLaTarjeta(card)){
+    //         return true
+    //     }
+    //     else {
+    //         return false
+    //     }
+    // }
+    // else {
+    //     return true
+    // }
 
 // me fijo si hay algo chequeado en los radio
 // si lo hay, me fijo que radio está chequeado
 // si el radio chequeado coinciden con el sexo de alguna tarjeta
 // retorno true, sino retorno false
+
+    if (hayAlgunRadioChequeado()){
+        if (comparoSexoConLaTarjeta(card)){
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    else {
+        return true
+    }
+
+
+
+
 
 
 }
